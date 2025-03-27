@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>例大祭 計画ページ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="main-title">博麗神社例大祭<br>共有ページ</h1>
+
+    <p class="intro">
+      ここで、スケジュールや持ち物リスト、アクセス情報を確認！下のタブを押してね。<br>
+      画像をタップすれば、公式のYouTubeやサイトに飛べます。
+    </p>
+
+    <div class="top-links">
+      <a href="https://reitaisai.com/" target="_blank">
+        <img src="f281ef54ef1cb5dad0b61edaec36d0b7.png" alt="例大祭公式サイトへ" class="reitaisai-poster">
+      </a>
+      <a href="https://www.youtube.com/@reitaisai-utamatsuri" target="_blank">
+        <img src="yt_1200.png" alt="YouTubeリンク" class="yt-image">
+      </a>
+    </div>
+  </header>
+
+  <nav class="tab-nav">
+    <button onclick="showTab('schedule')" class="active"><span>📅</span> スケジュール</button>
+    <button onclick="showTab('checklist')"><span>📦</span> 持ち物</button>
+    <button onclick="showTab('access')"><span>🗺️</span> アクセス</button>
+  </nav>
+
+  <main>
+    <section id="schedule" class="tab-content active">
+      <h2>当日のスケジュール</h2>
+      <p>ここにスケジュールを書く予定！</p>
+    </section>
+
+    <section id="checklist" class="tab-content">
+      <h2>持ち物チェックリスト</h2>
+      <p>ここにチェックリストを設置予定！</p>
+    </section>
+
+    <section id="access" class="tab-content">
+      <h2>会場アクセス</h2>
+      <p><strong>会場：</strong>東京ビッグサイト 東ホール</p>
+      <p><strong>住所：</strong>東京都江東区有明3-11-1</p>
+      <p><strong>最寄り駅：</strong><br>
+        ・りんかい線「国際展示場駅」徒歩約7分<br>
+        ・ゆりかもめ「東京ビッグサイト駅」徒歩約3分
+      </p>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.9829106781425!2d139.79270761525805!3d35.629756880210154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188baf7d78e12b%3A0x98f86512e35fcce7!2z5p2x5Lqs44CB44CSMTM1LTAwMjMg5p2x5Lqs6YO95riv5Yy65Zub5qWt77yU5LiB55uu77yS4oiS77yT!5e0!3m2!1sja!2sjp!4v1610860000000!5m2!1sja!2sjp"
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+
+      <p class="access-note">
+        💡 イベント当日はかなり混雑する。<br>
+        時間に余裕を持って早めにホテルを出ることを忘れずに！<br>
+        また、近くにはコンビニやファストフード店、24時間営業の温泉もあるらしい。。。
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>作成者：<strong>Yuiと優秀な助手クン</strong>（2025年3月 作成）</p>
+  </footer>
+  
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      document.getElementById(tabId).classList.add('active');
+
+      document.querySelectorAll('.tab-nav button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const clickedBtn = Array.from(document.querySelectorAll('.tab-nav button')).find(btn =>
+        btn.innerText.includes(tabId === "schedule" ? "スケジュール" : tabId === "checklist" ? "持ち物" : "アクセス")
+      );
+      if (clickedBtn) clickedBtn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
+
